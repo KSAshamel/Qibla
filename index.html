@@ -1,312 +1,121 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>بوصلة القبلة</title>
-
-<link rel="manifest" href="manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-icon" href="icon.png">
-
-<style>
-:root{
-    --green:#013220;
-    --gold:#d4af37;
-    --gold-light:#f4d06f;
-    --red:#c41e3a;
-}
-
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#0a0a0a;
-    font-family:"Tajawal",sans-serif;
-    color:#fff;
-}
-
-.phone{
-    width:340px;
-    height:680px;
-    padding:14px;
-    background:linear-gradient(145deg,var(--gold),#5a3a00);
-    border-radius:40px;
-    box-shadow:0 20px 50px #000;
-}
-
-.screen{
-    width:100%;
-    height:100%;
-    background:radial-gradient(circle,#024b30 0%,var(--green) 100%);
-    border-radius:30px;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.screen::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle at top, rgba(212,175,55,0.12), transparent 60%);
-    opacity:.5;
-    pointer-events:none;
-}
-
-header{
-    margin-top:30px;
-    text-align:center;
-    z-index:2;
-}
-.title{
-    font-size:1.7rem;
-    color:var(--gold-light);
-    text-shadow:0 2px 4px rgba(0,0,0,.5);
-}
-
-.center-area{
-    flex-grow:1;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    z-index:2;
-}
-
-.ring{
-    width:280px;
-    height:280px;
-    border-radius:50%;
-    border:6px solid var(--gold);
-    box-shadow:0 0 25px rgba(212,175,55,0.6), inset 0 0 20px rgba(0,0,0,0.7);
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-}
-
-.disk{
-    width:240px;
-    height:240px;
-    border-radius:50%;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:
-        radial-gradient(circle at center, #013220 0, #00150c 60%),
-        conic-gradient(from 0deg, rgba(255,255,255,0.15) 0 90deg, transparent 90deg 180deg, rgba(255,255,255,0.15) 180deg 270deg, transparent 270deg 360deg);
-    border:2px solid rgba(255,255,255,0.2);
-    transition:transform .1s linear;
-}
-
-.disk::before{
-    content:"ش";
-    position:absolute;
-    top:6px;
-    left:50%;
-    transform:translateX(-50%);
-    color:var(--gold-light);
-    font-size:.9rem;
-}
-.disk::after{
-    content:"ج";
-    position:absolute;
-    bottom:6px;
-    left:50%;
-    transform:translateX(-50%);
-    color:var(--gold-light);
-    font-size:.9rem;
-}
-
-.kaaba{
-    width:70px;
-    height:70px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-    background:linear-gradient(to bottom,#000,#222);
-    box-shadow:0 0 10px rgba(0,0,0,0.8);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--gold-light);
-    font-size:.7rem;
-}
-.kaaba::before{
-    content:"الكعبة";
-}
-
-.arrow{
-    position:absolute;
-    width:40px;
-    height:40px;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:linear-gradient(to top,var(--red),var(--gold-light));
-    clip-path:polygon(50% 0%,0% 100%,50% 80%,100% 100%);
-    filter:drop-shadow(0 0 5px gold);
-    z-index:3;
-}
-
-.footer{
-    width:100%;
-    background:rgba(0,0,0,.4);
-    padding:12px 0 18px;
-    text-align:center;
-    border-top:1px solid rgba(212,175,55,.2);
-    z-index:2;
-}
-.degree{
-    font-size:1.4rem;
-    color:var(--gold-light);
-    font-weight:700;
-    margin-bottom:4px;
-}
-.info{
-    font-size:.7rem;
-    color:#ccc;
-    margin:2px 0;
-}
-
-button{
-    margin-top:6px;
-    padding:8px 22px;
-    background:transparent;
-    border:1px solid var(--gold);
-    color:var(--gold-light);
-    border-radius:20px;
-    cursor:pointer;
-    transition:.3s;
-    font-size:.8rem;
-}
-button:hover{
-    background:var(--gold);
-    color:#000;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>بوصلة القبلة الاحترافية</title>
+    <style>
+        :root{ --green:#013220; --gold:#d4af37; --gold-light:#f4d06f; --red:#c41e3a; }
+        body{ margin:0; height:100vh; display:flex; justify-content:center; align-items:center; background:#0a0a0a; font-family:sans-serif; color:#fff; overflow: hidden; }
+        .phone{ width:340px; height:680px; padding:14px; background:linear-gradient(145deg,var(--gold),#5a3a00); border-radius:40px; box-shadow:0 20px 50px #000; position: relative; }
+        .screen{ width:100%; height:100%; background:radial-gradient(circle,#024b30 0%,var(--green) 100%); border-radius:30px; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; }
+        header{ margin-top:30px; text-align:center; z-index:2; }
+        .title{ font-size:1.7rem; color:var(--gold-light); margin:0; }
+        .center-area{ flex-grow:1; width:100%; display:flex; justify-content:center; align-items:center; position:relative; }
+        .ring{ width:280px; height:280px; border-radius:50%; border:6px solid var(--gold); position:absolute; box-shadow:0 0 20px rgba(212,175,55,0.4); }
+        .disk{ width:240px; height:240px; border-radius:50%; position:absolute; background: radial-gradient(circle, #013220 0%, #000 70%); border:2px solid rgba(255,255,255,0.1); will-change: transform; }
+        .disk::before{ content:"ش"; position:absolute; top:10px; left:50%; transform:translateX(-50%); color:var(--red); font-weight:bold; }
+        .kaaba-icon{ width:50px; height:50px; position:absolute; top:20px; left:50%; transform:translateX(-50%); z-index: 5; filter: drop-shadow(0 0 5px gold); }
+        .arrow-pointer{ position:absolute; width:4px; height:120px; background:var(--gold); top:50%; left:50%; transform-origin: top center; transform: translate(-50%, -50%); z-index: 4; }
+        .footer{ width:100%; background:rgba(0,0,0,0.5); padding:15px 0; text-align:center; border-top:1px solid var(--gold); }
+        .degree{ font-size:1.2rem; color:var(--gold-light); font-weight:bold; }
+        button{ margin-top:10px; padding:10px 25px; background:var(--gold); border:none; color:#000; border-radius:20px; font-weight:bold; cursor:pointer; }
+    </style>
 </head>
-
 <body>
 
 <div class="phone">
-  <div class="screen">
+    <div class="screen">
+        <header>
+            <h1 class="title">اتجاه القبلة</h1>
+            <p id="status" style="font-size:0.8rem; color:#ccc;">يجب السماح بالموقع والحساسات</p>
+        </header>
 
-    <header>
-      <h1 class="title">اتجاه القبلة</h1>
-      <p id="status" style="font-size:.8rem;color:#ccc">اضغط على الزر لتفعيل البوصلة</p>
-    </header>
+        <div class="center-area">
+            <div class="ring"></div>
+            <div id="disk" class="disk">
+                <div id="qibla-marker" style="position:absolute; width:100%; height:100%; transition: transform 0.3s;">
+                    <div class="kaaba-icon">🕋</div>
+                </div>
+            </div>
+            <div style="position:absolute; top:20%; color:white; font-weight:bold;">▲</div>
+        </div>
 
-    <div class="center-area">
-      <div class="ring"></div>
-      <div id="disk" class="disk"></div>
-      <div class="kaaba"></div>
-      <div id="arrow" class="arrow"></div>
+        <div class="footer">
+            <div id="deg" class="degree">زاوية القبلة: --</div>
+            <div id="info" style="font-size:0.7rem; color:#aaa; margin-top:5px;">حرك الهاتف بشكل رقم 8 للمعايرة</div>
+            <button id="btn">تفعيل البوصلة</button>
+        </div>
     </div>
-
-    <div class="footer">
-      <div class="degree" id="deg">زاوية القبلة: 0°</div>
-      <div class="info" id="head">اتجاه الجهاز: -</div>
-      <div class="info" id="diff">فرق الاتجاه: -</div>
-      <button id="btn">تفعيل الحساسات</button>
-    </div>
-
-  </div>
 </div>
 
 <script>
-const kaaba = {lat:21.4225, lng:39.8262};
+const kaabaCoors = {lat: 21.4225, lng: 39.8262};
 let qiblaAngle = 0;
+let isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-const statusEl = document.getElementById("status");
-const diskEl   = document.getElementById("disk");
-const arrowEl  = document.getElementById("arrow");
-const degEl    = document.getElementById("deg");
-const headEl   = document.getElementById("head");
-const diffEl   = document.getElementById("diff");
-const btn      = document.getElementById("btn");
+const btn = document.getElementById('btn');
+const disk = document.getElementById('disk');
+const qiblaMarker = document.getElementById('qibla-marker');
+const degEl = document.getElementById('deg');
+const statusEl = document.getElementById('status');
 
-btn.addEventListener("click", init);
-
-function init(){
-    navigator.geolocation.getCurrentPosition(pos=>{
-        const lat = pos.coords.latitude;
-        const lng = pos.coords.longitude;
-
-        const φ1 = lat * Math.PI/180;
-        const φ2 = kaaba.lat * Math.PI/180;
-        const dLon = (kaaba.lng - lng) * Math.PI/180;
-
-        const y = Math.sin(dLon);
-        const x = Math.cos(φ1)*Math.tan(φ2) - Math.sin(φ1)*Math.cos(dLon);
-
-        qiblaAngle = (Math.atan2(y,x) * 180/Math.PI + 360) % 360;
-        degEl.innerText = "زاوية القبلة: " + Math.round(qiblaAngle) + "°";
-
-        statusEl.innerText = "جاري طلب صلاحية الحساسات…";
-
-        if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === "function") {
-            DeviceOrientationEvent.requestPermission()
-            .then(res=>{
-                if(res === "granted"){
-                    statusEl.innerText = "تم تفعيل الحساسات";
-                    window.addEventListener("deviceorientation", updateCompass);
-                }else{
-                    statusEl.innerText = "تم رفض صلاحية الحساسات";
-                }
-            })
-            .catch(err=>{
-                statusEl.innerText = "خطأ في طلب صلاحية الحساسات";
-                console.log(err);
-            });
-        } else {
-            window.addEventListener("deviceorientation", updateCompass);
-            statusEl.innerText = "تم تفعيل الحساسات";
-        }
-    }, err=>{
-        statusEl.innerText = "تعذر تحديد الموقع";
-        console.log(err);
+btn.addEventListener('click', async () => {
+    // 1. طلب الموقع أولاً لحساب زاوية القبلة الثابتة
+    navigator.geolocation.getCurrentPosition(pos => {
+        const p = pos.coords;
+        qiblaAngle = calculateQibla(p.latitude, p.longitude);
+        degEl.innerText = `زاوية القبلة: ${Math.round(qiblaAngle)}°`;
+        qiblaMarker.style.transform = `rotate(${qiblaAngle}deg)`;
+        
+        // 2. طلب صلاحية الحساسات (خاص بـ Safari iOS)
+        startOrientation();
+    }, err => {
+        statusEl.innerText = "خطأ: يجب تفعيل الموقع (GPS)";
     });
+});
+
+function calculateQibla(lat, lng) {
+    const φ1 = lat * Math.PI / 180;
+    const φ2 = kaabaCoors.lat * Math.PI / 180;
+    const Δλ = (kaabaCoors.lng - lng) * Math.PI / 180;
+    const y = Math.sin(Δλ);
+    const x = Math.cos(φ1) * Math.tan(φ2) - Math.sin(φ1) * Math.cos(Δλ);
+    return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
 }
 
-function updateCompass(e){
-    let heading = null;
+async function startOrientation() {
+    if (isIOS && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        try {
+            const response = await DeviceOrientationEvent.requestPermission();
+            if (response === 'granted') {
+                window.addEventListener('deviceorientation', handleOrientation, true);
+            }
+        } catch (e) { statusEl.innerText = "تعذر الحصول على إذن الحساسات"; }
+    } else {
+        window.addEventListener('deviceorientationabsolute', handleOrientation, true);
+        // للمتصفحات التي لا تدعم absolute
+        window.addEventListener('deviceorientation', handleOrientation, true);
+    }
+    statusEl.innerText = "البوصلة تعمل الآن";
+    btn.style.display = 'none';
+}
 
-    if (typeof e.webkitCompassHeading === "number") {
-        // iOS: قيمة جاهزة من 0 إلى 360 (الشمال = 0)
+function handleOrientation(e) {
+    let heading = 0;
+    
+    if (e.webkitCompassHeading) {
+        // Safari على iOS (يعطي الشمال المغناطيسي بدقة)
         heading = e.webkitCompassHeading;
-    } else if (typeof e.alpha === "number") {
-        // متصفحات أخرى: نعكسها لتصبح مثل البوصلة (الشمال = 0، مع عقارب الساعة)
-        heading = (360 - e.alpha + 360) % 360;
+    } else if (e.absolute || e.alpha !== null) {
+        // Android (غالباً يحتاج تعديل بناءً على Z-axis)
+        heading = e.alpha; 
+        // في أندرويد 0 تعني الشمال فقط إذا كان الحساس absolute
     }
 
-    if (heading == null || isNaN(heading)) return;
-
-    // تدوير قرص البوصلة عكس اتجاه الجهاز
-    diskEl.style.transform = `translate(-50%,-50%) rotate(${-heading}deg)`;
-
-    // سهم القبلة: الفرق بين القبلة واتجاه الجهاز
-    const diff = (qiblaAngle - heading + 360) % 360;
-    arrowEl.style.transform = `translate(-50%,-50%) rotate(${diff}deg)`;
-
-    headEl.innerText = "اتجاه الجهاز: " + Math.round(heading) + "°";
-    diffEl.innerText = "فرق الاتجاه: " + Math.round(diff) + "°";
-}
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js").catch(console.error);
+    // تدوير القرص ليبقى الشمال (ش) دائماً باتجاه الشمال الحقيقي
+    disk.style.transform = `rotate(${-heading}deg)`;
 }
 </script>
-
 </body>
 </html>
